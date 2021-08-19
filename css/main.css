@@ -1,0 +1,169 @@
+.float-reset {
+  clear: both;
+  display: table;
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 3.2em;
+  font-weight: bold;
+  color: #394F63;
+  margin: 1em 0 0.5em 0;
+}
+
+.hcardForm {
+  padding: 0 5%;
+}
+
+.hcardForm__section {
+  margin-bottom: 25px;
+}
+
+.hcardForm__subtitle {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #C4CACD;
+  margin-bottom: 25px;
+}
+
+.hcardForm__subtitle:after {
+  content:' ';
+  display:block;
+  border:1px solid #d0d0d0;
+  border-radius:1px;
+  -webkit-border-radius:1px;
+  -moz-border-radius:1px;
+}
+
+.hcardForm__label {
+  color: #44596C;
+  font-size: 1.4em;
+}
+
+.hcardForm__input {
+  height: 2.4em;
+  font-size: 1.5em;
+}
+
+.hcardPreview {
+  padding: 0 5%;
+  background-color: #E7E9EC;
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.preview {
+  margin: 25% 0 25% 0;
+}
+.preview__title {
+  float:right;
+  font-weight: bold;
+  font-size: 1.7em;
+  color: #ABB8B9;
+  margin-left:auto;
+  margin-right:0;
+}
+.preview__name {
+  background-color: #394F63;
+  padding: 2em 0 0.4em 0;
+  font-size: 2em;
+  font-weight: bold;
+  color: #FFF;
+}
+.preview__name__text {
+  margin-left: 1.2em;
+}
+.preview__details {
+  background-color: #FFF;
+  padding: 2em 0 2em 0;
+}
+.preview__details__row {
+  margin: 1em 2em 0 2em;
+  position: relative;
+}
+.preview__details__row:after {
+  content:' ';
+  display:block;
+  border:1px solid #d0d0d0;
+  border-radius:1px;
+  -webkit-border-radius:1px;
+  -moz-border-radius:1px;
+}
+
+.preview__descriptor {
+  font-size: 1em;
+  color: #486074;
+  text-transform: uppercase;
+}
+
+.preview__descriptor--right {
+  padding-left: 11em;
+  position: absolute;
+}
+
+.preview__content {
+  font-size: 1.5em;
+  color: #000;
+}
+
+.preview__content--left {
+  left: 5em;
+  bottom: 0;
+  position: absolute;
+}
+
+.preview__content--right {
+  left: 15em;
+  bottom: 0;
+  position: absolute;
+}
+
+.preview__photo {
+  border: 2px solid black;
+  position: relative;
+  z-index: 100;
+  float: right;
+  display: block;
+  background: #FFF;
+  margin: -6em 1em 0 0;
+  width: 20%;
+  height: auto;
+}
+
+.btn-xl {
+  width: 100%;
+  font-size: 2em;
+  border-radius: 8px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  background-color: #758E9D;
+}
+
+.btn-submit {
+  background-color:#3FA9E2;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
