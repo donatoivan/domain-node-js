@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   target: "node",
-  entry: "./index.js",
+  entry: "./server.js",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "static"),

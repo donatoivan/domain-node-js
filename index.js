@@ -31,6 +31,4 @@ app.get("/", (req, res) => {
 
 app.use(express.static("static"));
 
-app.listen(5000, () => {
-  console.log(".......listening on port 5000");
-});
+export default app;
