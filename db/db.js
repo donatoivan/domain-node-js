@@ -10,10 +10,9 @@ const db = new loki("domain-users.db", {
 
 function loadHandler() {
   let users = db.getCollection("users");
+
   if (!users) {
-    console.log("......database initialised");
     users = db.addCollection("users");
-    console.log("......users collection created");
   }
 }
 
