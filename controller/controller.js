@@ -1,7 +1,7 @@
 import React from "react";
 import Hcard from "../components/Hcard";
 import { renderToString } from "react-dom/server";
-import { save } from "../db/db";
+import { save, find } from "../db/db";
 
 export const renderHome = (req, res) => {
   const content = renderToString(<Hcard />);
@@ -52,4 +52,15 @@ export const submitForm = (req, res) => {
 
   res.cookie("hCardUser", id, { httpOnly: false });
   res.redirect("/");
+};
+
+export const getData = (req, res) => {
+  const { id } = req.query;
+
+  if (id) {
+    const user = find(id);
+    return res.send(user.data);
+  }
+
+  return res.send({});
 };

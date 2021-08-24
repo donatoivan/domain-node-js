@@ -6,6 +6,8 @@ jest.doMock("lokijs", () => ({
 }));
 
 const saveMock = jest.spyOn(require("./db/db"), "save");
+const findMock = jest.spyOn(require("./db/db"), "find");
+
 describe("SSR App", () => {
   afterEach(jest.resetAllMocks);
 
@@ -53,7 +55,6 @@ describe("SSR App", () => {
     });
   });
 
-
   describe("/submit", () => {
     it("should save user data with cookie and redirect to '/'", async () => {
       saveMock.mockReturnValue("userCookie");
@@ -87,6 +88,25 @@ describe("SSR App", () => {
         "hCardUser=userCookie; Path=/",
       ]);
       expect(response.header.location).toEqual("/");
+    });
+  });
+
+  describe("/data", () => {
+    it("should return empty data when no id is present", async () => {
+      const response = await request(app).get("/data");
+
+      expect(response.text).toEqual("{}");
+    });
+
+    it("should return user data when id is present", async () => {
+      findMock.mockReturnValue({
+        data: { givenName: "Given name prop is present in html" },
+      });
+      const response = await request(app).get("/data").query("id=userId");
+
+      expect(response.text).toEqual(
+        '{"givenName":"Given name prop is present in html"}'
+      );
     });
   });
 });
