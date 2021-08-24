@@ -16,6 +16,7 @@ const mockDb = {
 
 describe("db", () => {
   afterEach(jest.resetAllMocks);
+
   describe("find", () => {
     it("should find a user by userId", () => {
       const user = find("user id", mockDb);
@@ -36,7 +37,7 @@ describe("db", () => {
       expect(userId).toEqual("user id");
     });
 
-    it("should it should update user data when id is present", () => {
+    it("should update user data when id is present", () => {
       const userId = save("user id", { name: "test" }, mockDb);
 
       expect(mockUpdate).toHaveBeenCalledWith({

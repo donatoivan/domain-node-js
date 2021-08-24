@@ -2,13 +2,13 @@ import app from "./index";
 import request from "supertest";
 
 jest.doMock("lokijs", () => ({
-  LokiConstructor
+  LokiConstructor: jest.fn(),
 }));
 
 const saveMock = jest.spyOn(require("./db/db"), "save");
 describe("SSR App", () => {
   afterEach(jest.resetAllMocks);
-  
+
   describe("/", () => {
     it("should serve the html", async () => {
       await request(app)

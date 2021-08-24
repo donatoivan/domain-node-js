@@ -8,7 +8,7 @@
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
     "dev:server": "nodemon --watch static --exec \"node static/bundle.js\"",
-    "test": "jest --coverage --silent",
+    "test": "jest --coverage",
     "test:watch": "jest --coverage --watch"
   },
   "repository": {
