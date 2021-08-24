@@ -52,4 +52,41 @@ describe("SSR App", () => {
       expect(response.header.location).toEqual("/");
     });
   });
+
+
+  describe("/submit", () => {
+    it("should save user data with cookie and redirect to '/'", async () => {
+      saveMock.mockReturnValue("userCookie");
+
+      const response = await request(app)
+        .post("/submit")
+        .set("Cookie", "hCardUser=test;")
+        .send("givenName=Sam&surname=Fairfax");
+
+      expect(saveMock).toHaveBeenCalledWith("test", {
+        givenName: "Sam",
+        surname: "Fairfax",
+      });
+      expect(response.header["set-cookie"]).toEqual([
+        "hCardUser=userCookie; Path=/",
+      ]);
+      expect(response.header.location).toEqual("/");
+    });
+
+    it("should save user data without cookie and redirect to '/'", async () => {
+      saveMock.mockReturnValue("userCookie");
+      const response = await request(app)
+        .post("/submit")
+        .send("givenName=Sam&surname=Fairfax");
+
+      expect(saveMock).toHaveBeenCalledWith(null, {
+        givenName: "Sam",
+        surname: "Fairfax",
+      });
+      expect(response.header["set-cookie"]).toEqual([
+        "hCardUser=userCookie; Path=/",
+      ]);
+      expect(response.header.location).toEqual("/");
+    });
+  });
 });

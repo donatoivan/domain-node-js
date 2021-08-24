@@ -39,3 +39,17 @@ export const updateUser = (req, res) => {
   res.cookie("hCardUser", id, { httpOnly: false });
   res.redirect("/");
 };
+
+export const submitForm = (req, res) => {
+  let id;
+  const { body, cookies } = req;
+
+  if (cookies.hCardUser) {
+    id = save(cookies.hCardUser, body);
+  } else {
+    id = save(null, body);
+  }
+
+  res.cookie("hCardUser", id, { httpOnly: false });
+  res.redirect("/");
+};
