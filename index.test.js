@@ -18,6 +18,19 @@ describe("SSR App", () => {
         .expect("Content-Type", "text/html; charset=utf-8")
         .expect(200);
     });
+
+    it("should find user if cookie is present", async () => {
+      findMock.mockReturnValue({
+        data: { givenName: "Given name prop is present in html" },
+      });
+      const response = await request(app)
+        .get("/")
+        .set("Cookie", "hCardUser=test;")
+        .expect("Content-Type", "text/html; charset=utf-8");
+
+      expect(findMock).toHaveBeenCalledWith("test");
+      expect(response.text).toContain("Given name prop is present in html");
+    });
   });
 
   describe("/update", () => {

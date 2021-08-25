@@ -4,7 +4,16 @@ import { renderToString } from "react-dom/server";
 import { save, find } from "../db/db";
 
 export const renderHome = (req, res) => {
-  const content = renderToString(<Hcard />);
+  const { cookies } = req;
+  let props;
+
+  if (cookies.hCardUser) {
+    const user = find(cookies.hCardUser);
+    props = user.data;
+  } else {
+    props = {};
+  }
+  const content = renderToString(<Hcard {...props} />);
   const html = `
   <html>
     <head>
