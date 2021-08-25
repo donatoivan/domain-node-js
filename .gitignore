@@ -1,3 +1,7 @@
 node_modules/
 coverage/
 domain-users.db
+static/App.js
+static/App.js.LICENSE.txt
+static/bundle.js
+static/bundle.js.LICENSE.txt
