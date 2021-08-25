@@ -4,8 +4,7 @@ This is my submission to the Domain Node coding challenge
 
 ## Installation requirements
 
-npde v14.15.0
-I've been devving on node v14.15.0 which would be the most ideal version to use for this.
+Developed using node v14.15.0 <br>
 
 Use nvm to switch node version swiftly and easily. Below are a couple of resources to install nvm on your computer<br> [For mac](https://tecadmin.net/install-nvm-macos-with-homebrew/)
 <br>[For windows](https://dev.to/skaytech/how-to-install-node-version-manager-nvm-for-windows-10-4nbi)
@@ -30,6 +29,21 @@ $ npm install
 
 ```
 $ npm start
+```
+
+
+### Docker
+
+If versioning is an issue the app and tests have been dockerised.
+
+To run the app
+```
+$ docker compose -f docker-compose.yaml up ssr
+```
+
+To run tests
+```
+$ docker compose -f docker-compose.yaml up tests
 ```
 
 The App will be available at [http://localhost:5000](http://localhost5000)
@@ -68,7 +82,7 @@ My initial gut reaction was to create the simplest and most lightweight server p
 
 To solve the problem of keeping track of the user from the server side, I've set a cookie with a user id which I can then query the db with to fetch the necessary data. There's also a fetch request on the browser side to '/data' in order to pass the data in as props when App.js renders. Props are also passed through the component on the server side to account for non-JS clients  The db I've used is lokiJS, a lightweight document based db. It's configured to be persistent to simulate a more "real-life" situation rather than just be an in memory db.
 
-Jest, React Testing Library and Supertest have been used to write unit tests and semi-inmtegration tests.
+Jest, React Testing Library and Supertest have been used to write unit tests and semi-integration tests.
 
 
 ---
